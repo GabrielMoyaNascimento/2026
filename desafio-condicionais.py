@@ -19,11 +19,11 @@ if distancia <= 50 and valor_com_desconto > 200.0:
 total_final = valor_com_desconto + frete
 
 print("-" * 30)
-print(f"RELATÓRIO DE COMPRA - {cliente}")
-print(f"Valor Original: R$ {valor_original:.2f}")
-print(f"Desconto: R$ {desconto:.2f}")
-print(f"Frete: R$ {frete:.2f}")
-print(f"TOTAL A PAGAR: R$ {total_final:.2f}")
+print("RELATÓRIO DE COMPRA - ", cliente)
+print("Valor Original: R$ ", valor_original)
+print("Desconto: R$ ", desconto)
+print("Frete: R$ ", frete)
+print("TOTAL A PAGAR: R$ ", total_final)
 
 if desconto == (valor_original * 0.20):
     print("SURPRESA: Você ganhou um Mousepad Gamer de brinde!")
