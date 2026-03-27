@@ -9,12 +9,24 @@ print(total)
 senha = ""
 while senha != "1234":
     senha = input("Senha: ")
+print("Bem vindo")
+
+# 3. Tamanho do Nome
+nomes = ["Gabriel", "João Guilherme", "Ayumi", "Isadora", "Ana"]
+nomes_escolhidos = []
+
+for nome in nomes:
+    if len(nome) > 5:
+        nomes_escolhidos.append(nome)
+    print(nome)
+
 
 # 4. Fila
 fila = ["A", "B", "C", "D", "E"]
 while len(fila) > 0:
-    atendido = fila.pop(0)
-    print(f"Atendido: {atendido}")
+    print(f"Atendido: {fila[0]}")
+    fila.pop(0)
+    
 
 # 5. Compras
 carrinho = []
