@@ -1,3 +1,5 @@
+open('alunos.txt', 'w').close()
+
 def criar():
     nome = input("Nome do aluno: ")
     with open('alunos.txt', 'a') as f:
@@ -9,9 +11,9 @@ def ler():
     with open('alunos.txt', 'r') as f:
         alunos = f.readlines()
         
-        i = 0  # Começamos o contador em zero
+        i = 0
         for aluno in alunos:
-            print(f"{i} - {aluno.strip()}")
+            print(f"{i} - {aluno.strip()}") # Strip - Remove espaços em branco e o \n
             i += 1  # Incrementamos 1 para a próxima linha
 
 
@@ -52,4 +54,4 @@ while True:
     elif opcao == '2': ler()
     elif opcao == '3': atualizar()
     elif opcao == '4': deletar()
-    elif opcao == '5': break
+    elif opcao == '5': break # Interrompe o laço de repetição
