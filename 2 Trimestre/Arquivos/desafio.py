@@ -16,6 +16,9 @@ def ler():
             print(f"{i} - {aluno.strip()}") # Strip - Remove espaços em branco e o \n
             i += 1  # Incrementamos 1 para a próxima linha
 
+# nome = "   João Silva\n"
+# print(f"Original: '{nome}'")
+# print(f"Com strip: '{nome.strip()}'")
 
 def atualizar():
     ler() # Mostra a lista para o usuário escolher
