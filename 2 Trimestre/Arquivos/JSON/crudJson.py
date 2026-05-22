@@ -41,7 +41,7 @@ def listar():
         return
 
     for aluno in alunos:
-        print(f"ID: {aluno['id']} | Nome: {aluno['nome']} | CPF: {aluno['cpf']} | Turma: {aluno['turma']} | Tel: {aluno['telefone']}")
+        print(f"Nome: {aluno['nome']} | CPF: {aluno['cpf']} | Turma: {aluno['turma']} | Tel: {aluno['telefone']}")
 
 def atualizar():
     print("\n--- Atualizar Aluno ---")
