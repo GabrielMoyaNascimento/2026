@@ -52,7 +52,7 @@ def atualizar():
     with open(BANCO_DADOS, 'r', encoding='utf-8') as f:
         alunos = json.load(f)
         
-    cpf_busca = int(input("Digite o CPF do aluno que deseja editar: "))
+    cpf_busca = input("Digite o CPF do aluno que deseja editar: ")
     
     for aluno in alunos:
         if aluno['cpf'] == cpf_busca:
@@ -79,9 +79,9 @@ def excluir():
     with open(BANCO_DADOS, 'r', encoding='utf-8') as f:
         alunos = json.load(f)
         
-    id_busca = int(input("Digite o ID do aluno que deseja remover: "))
+    cpf_busca = input("Digite o cpf do aluno que deseja remover: ")
     
-    nova_lista = [a for a in alunos if a['id'] != id_busca]
+    nova_lista = [a for a in alunos if a['cpf'] != cpf_busca]
     
     if len(nova_lista) < len(alunos):
         with open(BANCO_DADOS, 'w', encoding='utf-8') as f:
