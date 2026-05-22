@@ -6,7 +6,6 @@ BANCO_DADOS = 'alunos.json'
 def cadastrar():
     print("\n--- Novo Cadastro ---")
     
-    # 1. Abre o arquivo para ler os alunos já existentes e validar o ID
     if os.path.exists(BANCO_DADOS):
         with open(BANCO_DADOS, 'r', encoding='utf-8') as f:
             alunos = json.load(f)
@@ -21,8 +20,6 @@ def cadastrar():
         "cpf": input("CPF: ")
     }
     
-
-    # 2. Adiciona à lista da memória e abre o arquivo no modo 'w' para salvar
     alunos.append(novo_aluno)
 
     with open(BANCO_DADOS, 'w', encoding='utf-8') as f:
@@ -33,7 +30,6 @@ def cadastrar():
 def listar():
     print("\n--- Lista de Alunos ---")
     
-    # Abre o arquivo para leitura direta se ele existir
     if os.path.exists(BANCO_DADOS):
         with open(BANCO_DADOS, 'r', encoding='utf-8') as f:
             alunos = json.load(f)
@@ -53,7 +49,6 @@ def atualizar():
         print("Nenhum aluno cadastrado no sistema.")
         return
 
-    # 1. Abre o arquivo para leitura direta
     with open(BANCO_DADOS, 'r', encoding='utf-8') as f:
         alunos = json.load(f)
         
@@ -68,7 +63,6 @@ def atualizar():
             aluno['idade'] = int(input(f"Nova Idade ({aluno['idade']}): ") or aluno['idade'])
             aluno['cpf'] = input(f"Novo CPF ({aluno['cpf']}): ") or aluno['cpf']
             
-            # 2. Salva as modificações substituindo o arquivo antigo
             with open(BANCO_DADOS, 'w', encoding='utf-8') as f:
                 json.dump(alunos, f, indent=4, ensure_ascii=False)
             print("Dados atualizados com sucesso!")
@@ -82,27 +76,21 @@ def excluir():
         print("Nenhum aluno cadastrado no sistema.")
         return
 
-    # 1. Abre o arquivo para leitura direta
     with open(BANCO_DADOS, 'r', encoding='utf-8') as f:
         alunos = json.load(f)
         
     id_busca = int(input("Digite o ID do aluno que deseja remover: "))
     
-    # Cria uma nova lista sem o aluno do ID selecionado
     nova_lista = [a for a in alunos if a['id'] != id_busca]
     
     if len(nova_lista) < len(alunos):
-        # 2. Salva a nova lista modificada
         with open(BANCO_DADOS, 'w', encoding='utf-8') as f:
             json.dump(nova_lista, f, indent=4, ensure_ascii=False)
         print("Aluno removido com sucesso!")
     else:
         print("Aluno não encontrado.")
 
-# --- MENU PRINCIPAL ---
-
 def menu():
-    # Cria o arquivo com uma lista vazia se ele não existir ao iniciar o programa
     if not os.path.exists(BANCO_DADOS):
         with open(BANCO_DADOS, 'w', encoding='utf-8') as f:
             json.dump([], f)
