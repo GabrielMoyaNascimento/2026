@@ -32,6 +32,16 @@ comando_inserir = f'''
     VALUES ('{nome_aluno}', '{telefone_aluno}', '{turma_aluno}', {idade_aluno}, '{cpf_aluno}')
 '''
 
+# ➔ TEXT (Leva aspas porque é texto).
+
+# ➔ TEXT (Leva aspas porque tem pontos e traços).
+
+# ➔ INTEGER (NÃO leva aspas porque é número inteiro).
+
+# ➔ REAL/FLOAT (NÃO leva aspas porque é número decimal).
+
+# ➔ BOOL (0 ou 1) (NÃO leva aspas porque vira número inteiro no banco).
+
 # Envia o comando completo para o banco de dados
 cursor.execute(comando_inserir)
 
@@ -39,4 +49,4 @@ cursor.execute(comando_inserir)
 conexao.commit()
 conexao.close()
 
-print("Passo 3: Dados da Ana Clara gravados com sucesso!")
+print("Passo 3: Dados gravados com sucesso!")
