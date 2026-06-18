@@ -50,3 +50,28 @@ conexao.commit()
 conexao.close()
 
 print("Passo 3: Dados gravados com sucesso!")
+
+
+
+# Listar as informações da tabela
+
+# 1. Conecta ao banco de dados existente
+conexao = sqlite3.connect('escola_demonstracao.db')
+cursor = conexao.cursor()
+
+print("\n=== LISTA DE ALUNOS CADASTRADOS ===")
+
+# 2. Executa o comando SELECT (O asterisco '*' significa: trazer TODAS as colunas)
+cursor.execute("SELECT * FROM alunos")
+
+# 3. O "Pulo do Gato": O fetchall() faz o cursor descarregar os dados em uma lista do Python
+todos_alunos = cursor.fetchall()
+
+if not todos_alunos:
+    print("Nenhum aluno cadastrado até o momento.")
+else:
+    for aluno in todos_alunos: 
+        print(f"ID: {aluno[0]} | Nome: {aluno[1]} | Turma: {aluno[3]} | CPF: {aluno[5]}")
+
+# 6. Fecha a conexão (no SELECT não precisa de conexao.commit() porque não alteramos nada)
+conexao.close()
